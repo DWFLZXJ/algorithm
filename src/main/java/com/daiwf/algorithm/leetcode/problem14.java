@@ -11,4 +11,30 @@ package com.daiwf.algorithm.leetcode;
  * @since [产品/模块版本]
  */
 public class problem14 {
+
+    public String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0 || strs == null) {
+            return "";
+        }
+
+        String prefix = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            prefix = getLCP(prefix, strs[i]);
+            if (prefix.length() == 0) {
+                break;
+            }
+        }
+        return prefix;
+    }
+
+    public String getLCP(String str1, String str2) {
+        int length = Math.min(str1.length(), str2.length());
+        int index = 0;
+
+        while (index < length && (str1.charAt(index) == str2.charAt(index))) {
+            index++;
+        }
+        return str1.substring(0, index);
+    }
+
 }
