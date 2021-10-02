@@ -12,6 +12,13 @@ package com.daiwf.algorithm.leetcode;
  */
 public class problem14 {
 
+    /**
+     * @作者 daiwf
+     * @创建时间 2021/10/2 0002 15:48
+     * @功能描述 [横向扫描法]
+     * * @param null
+     * @return:
+     */
     public String longestCommonPrefix(String[] strs) {
         if (strs.length == 0 || strs == null) {
             return "";
@@ -35,6 +42,31 @@ public class problem14 {
             index++;
         }
         return str1.substring(0, index);
+    }
+
+
+    /**
+     * @作者 daiwf
+     * @创建时间 2021/10/2 0002 15:49
+     * @功能描述 [纵向扫描法]
+     * * @param null
+     * @return:
+     */
+    public String longestCommonPrefix1(String[] strs) {
+
+        if (strs.length == 0 || strs == null) {
+            return "";
+        }
+        for (int i = 0; i < strs[0].length(); i++) {
+            for (int j = 1; j < strs.length; j++) {
+                //这边一开始漏掉了全部匹配的情况。
+                if (i == strs[j].length() || strs[0].charAt(i) != strs[j].charAt(i)) {
+                    return strs[0].substring(0, i);
+                }
+            }
+
+        }
+        return strs[0];
     }
 
 }
