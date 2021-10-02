@@ -69,4 +69,49 @@ public class problem14 {
         return strs[0];
     }
 
+
+    /**
+     * @作者 daiwf
+     * @创建时间 2021/10/2 0002 20:13
+     * @功能描述 [利用分治的方法]
+     * * @param null
+     * @return:
+     */
+    public String longestCommonPrefix2(String[] strs) {
+
+        if (strs.length == 0 || strs == null) {
+            return "";
+        }
+      return   longestCommonPrefix3(strs, 0, strs.length - 1);
+    }
+
+    public String longestCommonPrefix3(String[] strs, int start, int end) {
+
+        if (start == end) {
+            return strs[start];
+        }
+        int mid = (end - start) / 2 +start;
+        String left = longestCommonPrefix3(strs, start, mid);
+        String right = longestCommonPrefix3(strs, mid + 1, end);
+        return commonprefix(left, right);
+    }
+
+
+    /**
+     * @作者 daiwf
+     * @创建时间 2021/10/2 0002 20:31
+     * @功能描述 [求两个字符串的公共前缀]
+     * * @param null
+     * @return:
+     */
+    public String commonprefix(String str1, String str2) {
+        int length = str1.length();
+        for (int i = 0; i < length; i++) {
+            if (i == str2.length() || str1.charAt(i) != str2.charAt(i)) {
+                return str1.substring(0, i);
+            }
+        }
+        return str1;
+    }
+
 }
