@@ -11,7 +11,7 @@ import java.util.List;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class problem707 {
+public class problem203 {
 
 
     /**
@@ -40,6 +40,21 @@ public class problem707 {
         } else {
             return head;
         }
+    }
+
+    /**
+     * @作者 daiwf
+     * @创建时间 2021-10-09 12:52
+     * @功能描述 [递归]
+     * * @param null
+     * @return:
+     */
+    public ListNode removeElements1(ListNode head, int val) {
+        if (head == null) {
+            return head;
+        }
+        head.next = removeElements1(head.next, val);
+        return head.val == val ? head.next : head;
     }
 
     public class ListNode {
