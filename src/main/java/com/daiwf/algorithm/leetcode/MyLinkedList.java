@@ -37,8 +37,9 @@ public class MyLinkedList {
         addAtIndex(0, val);
     }
 
+    //这边我一开始认为加到尾部就是size-1的地方就是尾部，其实不对的。和加到头部是不一样的应该是size
     public void addAtTail(int val) {
-        addAtIndex(size - 1, val);
+        addAtIndex(size , val);
     }
 
     public void addAtIndex(int index, int val) {
@@ -55,7 +56,10 @@ public class MyLinkedList {
     }
 
     public void deleteAtIndex(int index) {
-        //找到index的节点
+        // if the index is invalid, do nothing 这边一开始没有考虑到特殊情况所以没过
+        if (index < 0 || index >= size) {
+            return;
+        }
         ListNode cur = head;
         for (int i = 0; i < index; i++) {
             cur = cur.next;
