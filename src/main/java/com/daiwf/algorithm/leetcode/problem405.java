@@ -10,4 +10,19 @@ package com.daiwf.algorithm.leetcode;
  * @since [产品/模块版本]
  */
 public class problem405 {
+
+    public String toHex(int num) {
+        if (num == 0) {
+            return "0";
+        }
+        StringBuffer sb = new StringBuffer();
+        for (int i = 7; i >= 0; i--) {
+            int val = num >> (4 * i) & 0xf;
+            if (sb.length() > 0 || val > 0) {
+                sb.append(val < 10 ? (char) ('0' + val) : (char) ('a' + val - 10));
+            }
+        }
+        return sb.toString();
+    }
+
 }

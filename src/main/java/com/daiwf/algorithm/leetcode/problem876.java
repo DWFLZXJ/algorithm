@@ -32,10 +32,8 @@ public class problem876 {
             else {
                 return slow;
             }
-
         }
         return head;
-
     }
 
     public class ListNode {
