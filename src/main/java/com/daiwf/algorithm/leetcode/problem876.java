@@ -11,7 +11,30 @@ package com.daiwf.algorithm.leetcode;
  */
 public class problem876 {
 
+    /**
+     * @作者 daiwf
+     * @创建时间 2021-10-12 22:06
+     * @功能描述 [这次的双指针是自己想到的，真正的掌握双指针了开心]
+     * * @param null
+     * @return:
+     */
     public ListNode middleNode(ListNode head) {
+        if(head.next==null){
+            return head;
+        }
+        ListNode slow=head;
+        ListNode fast=head.next;
+        while (fast!=null){
+            slow=slow.next;
+            if(fast.next!=null&&fast.next.next!=null){
+                fast=fast.next.next;
+            }
+            else {
+                return slow;
+            }
+
+        }
+        return head;
 
     }
 
