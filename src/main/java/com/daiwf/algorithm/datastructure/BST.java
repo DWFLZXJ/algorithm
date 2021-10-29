@@ -183,5 +183,37 @@ public class BST<E extends Comparable<E>> {
 
     }
 
+    /**
+     * 寻找二分搜索树的最小值
+     */
+    public E minimum() {
+        if (size == 0)
+            throw new IllegalArgumentException();
+        return minimum(root);
+
+    }
+
+    private E minimum(Node node) {
+        if (node.left == null) {
+            return node.e;
+        }
+        return minimum(node.left);
+    }
+
+    /**
+     * 寻找二分搜索树中的最大值
+     */
+    public E maximum() {
+        if (size == 0)
+            throw new IllegalArgumentException();
+        return maximum(root);
+    }
+
+    private E maximum(Node node) {
+        if (node.right == null) {
+            return node.e;
+        }
+        return maximum(node.right);
+    }
 
 }

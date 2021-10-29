@@ -13,7 +13,7 @@ import javax.swing.tree.TreeNode;
  */
 public class problem230 {
 
-    public int kthSmallest(TreeNode root, int k) {
+  /*  public int kthSmallest(TreeNode root, int k) {
 
 
     }
@@ -36,7 +36,7 @@ public class problem230 {
             this.left = left;
             this.right = right;
         }
-    }
+    }*/
 
 
 }

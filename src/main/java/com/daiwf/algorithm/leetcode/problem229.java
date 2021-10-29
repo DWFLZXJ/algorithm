@@ -45,9 +45,9 @@ public class problem229 {
      * * @param null
      * @return:
      */
-    public List<Integer> majorityElement1(int[] nums) {
+   /* public List<Integer> majorityElement1(int[] nums) {
 
 
 
-    }
+    }*/
 }

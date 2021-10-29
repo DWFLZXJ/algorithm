@@ -16,14 +16,16 @@ public class Main {
        if( bst.contains(5)){
            System.out.println("有这个元素");
        }
+        System.out.println(bst.minimum());
+        System.out.println(bst.maximum());
 
-        bst.preOrder();
+      /*  bst.preOrder();
         System.out.println("++++++++++++++++");
         bst.preOrderNR();
         System.out.println("================");
         bst.inOrder();
         System.out.println(">>>>>>>>>>>>.");
-        bst.postOrder();
+        bst.postOrder();*/
 
     }
 }
