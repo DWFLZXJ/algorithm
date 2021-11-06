@@ -230,9 +230,9 @@ public class BST<E extends Comparable<E>> {
             Node rightNode = node.right;
             node.right = null;
             size--;
-           return rightNode;
+            return rightNode;
         }
-         node.left= removeMin(node.left);
+        node.left = removeMin(node.left);
         return node;
     }
 
@@ -240,20 +240,20 @@ public class BST<E extends Comparable<E>> {
     /**
      * 删除二分搜索树的最大值
      */
-    public E removeMax(){
-        E ret=maximum();
-       root= removeMax(root);
+    public E removeMax() {
+        E ret = maximum();
+        root = removeMax(root);
         return ret;
     }
 
-    private Node removeMax(Node node){
-        if(node.right==null){
-            Node leftNode=node.left;
-            node.left=null;
+    private Node removeMax(Node node) {
+        if (node.right == null) {
+            Node leftNode = node.left;
+            node.left = null;
             size--;
             return leftNode;
         }
-        node.right=removeMax(node.right);
+        node.right = removeMax(node.right);
         return node;
     }
 
