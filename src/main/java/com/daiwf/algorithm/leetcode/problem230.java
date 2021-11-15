@@ -1,6 +1,9 @@
 package com.daiwf.algorithm.leetcode;
 
 import javax.swing.tree.TreeNode;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * @version [版本号，2021-10-17]
@@ -13,9 +16,24 @@ import javax.swing.tree.TreeNode;
  */
 public class problem230 {
 
-  /*  public int kthSmallest(TreeNode root, int k) {
+    public int kthSmallest(TreeNode root, int k) {
 
 
+     Deque<Integer> deque = new LinkedList<>();
+        inOder(root,deque);
+        for (int i=0;i<k-1;i++){
+            deque.pop();
+        }
+        return deque.peek();
+    }
+
+    private void inOder(TreeNode cur, Deque<Integer> deque){
+        if (cur==null){
+            return;
+        }
+        inOder(cur.left,deque);
+        deque.offer(cur.val);
+        inOder(cur.right,deque);
     }
 
 
@@ -36,7 +54,7 @@ public class problem230 {
             this.left = left;
             this.right = right;
         }
-    }*/
+    }
 
 
 }
