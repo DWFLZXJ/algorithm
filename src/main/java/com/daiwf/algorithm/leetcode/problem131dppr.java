@@ -41,11 +41,20 @@ public class problem131dppr {
 
     public void dfs(String s,int index,int len, Deque<String> path, List<List<String>> ans,boolean[][] dp){
 
+        /**
+         * 找到递归的返回条件。就是index了。塞入答案。
+         * 递归完之后就会一层层的返回，每次返回就从栈里面弹出一次答案
+         * 答案弹完了就赶紧了。然后再从下个index继续递归下去。
+         * 至于剪枝就是去掉一些不符合的情况。continue掉。
+         */
         if(index==len){
             ans.add(new ArrayList<>(path));
             return;
         }
-
+        /**
+         * 回溯的核心逻辑，从index为0开始，找右边界符合条件的，塞入栈。然后从下个index再递归。
+         *
+         */
         for(int i=0;i<len;i++){
             if(dp[index][i]){
                 path.addLast(s.substring(index,i+1));
