@@ -15,7 +15,8 @@ public class problem46 {
     public List<List<Integer>> permute(int[] nums) {
         int len =nums.length;
 
-       List<Integer> path = new ArrayList<>();
+       Deque<Integer> path = new ArrayDeque<>();
+
         if(nums.length==0){
             return  ans;
         }
@@ -24,7 +25,7 @@ public class problem46 {
         return ans;
     }
 
-    public void dfs(int[] nums,boolean[] used,int index,int len,List<Integer> path){
+    public void dfs(int[] nums,boolean[] used,int index,int len,Deque<Integer> path){
 
         if(index==len){
             ans.add(new ArrayList<>(path));
@@ -32,10 +33,10 @@ public class problem46 {
         }
         for (int i=0;i<len;i++){
             if(!used[i]){
-                path.add(nums[i]);
+                path.addFirst(nums[i]);
                 used[i]=true;
                 dfs(nums,used,index+1,len,path);
-                path.remove(path.size()-1);
+                path.removeFirst();
                 used[i]=false;
             }
 
